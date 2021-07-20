@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "dependencies": {
+    "@graphql-codegen/plugin-helpers": "^1.18.8",
+    "@graphql-codegen/visitor-plugin-common": "1.22.0",
+    "auto-bind": "~4.0.0",
+    "graphql": "^15.5.1",
+    "tslib": "~2.3.0"
+  },
+  "peerDependencies": {
+    "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0",
+    "graphql-tag": "^2.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "codegen-graphql-request",
+  "author": "",
+  "module": "dist/codegen-graphql-request.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/codegen-graphql-request.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/codegen-graphql-request.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.1",
+    "husky": "^7.0.1",
+    "size-limit": "^5.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.5"
+  }
+}
